@@ -12,12 +12,12 @@ RUN addgroup -S kube-kms-example && adduser -S -g kube-kms-example kube-kms-exam
 
 USER kube-kms-example
 
-COPY print-secrets .
+COPY print-secrets.sh .
 
 # Use shush exec as an entrypoint for decrypting our secrets
 ENTRYPOINT ["/usr/local/bin/shush", "exec", "--"]
 
-CMD ["./print-secrets"]
+CMD ["./print-secrets.sh"]
 
 
 #FROM ubuntu:12.04
